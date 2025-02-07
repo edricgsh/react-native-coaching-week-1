@@ -77,7 +77,20 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const windowWidth = Dimensions.get("window").width;
 
 const CatGenerator = () => {
-  const [cats, setCats] = useState([]);
+  const [cats, setCats] = useState([
+    {
+      url: "https://cdn2.thecatapi.com/images/8cd.jpg",
+    },
+    {
+      url: "https://cdn2.thecatapi.com/images/8ob.jpg",
+    },
+    {
+      url: "https://cdn2.thecatapi.com/images/a0v.jpg",
+    },
+    {
+      url: "https://cdn2.thecatapi.com/images/akf.jpg",
+    },
+  ]);
   const [error, setError] = useState("");
 
   const fetchCats = async (count) => {
@@ -170,7 +183,7 @@ const styles = StyleSheet.create({
 ### Group Exercise
 
 1. The layout does not look quite right. Can you try to fix it?
-2. There is no cat shown to the user in the beginning. Can you fix it?
+2. The cat url is hardcoded for the first time. Can you make it dynamic?
 
 ## Step 4: Adding User Input and Submit Functionality
 
