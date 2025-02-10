@@ -146,7 +146,6 @@ const styles = StyleSheet.create({
     width: (windowWidth - 32 - 32 - 30) / 2,
     height: (windowWidth - 32 - 32 - 30) / 2,
     borderRadius: 8,
-    overflow: "hidden",
     backgroundColor: "#fb923c",
   },
   image: {
