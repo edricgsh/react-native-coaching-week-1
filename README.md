@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f5f5f5",
   },
   surface: {
-    flex: 1,
+    height: "100%",
     margin: 16,
     padding: 16,
     borderRadius: 8,
@@ -179,6 +179,8 @@ const styles = StyleSheet.create({
   },
 });
 ```
+> **Note**: The `Surface` component from react-native-paper does not work well with the `flex` property. Instead of using `flex`, setting an explicit `height` (like `height: "80%"`) will work better for controlling the Surface's size.
+
 
 ### Group Exercise
 
@@ -231,7 +233,7 @@ Add these additional styles:
 // Add these to your StyleSheet
 inputContainer: {
   gap: 16,
-  flex: 6,
+  flex: 2,
 },
 input: {
   backgroundColor: "white",
