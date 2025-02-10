@@ -179,8 +179,8 @@ const styles = StyleSheet.create({
   },
 });
 ```
-> **Note**: The `Surface` component from react-native-paper does not work well with the `flex` property. Instead of using `flex`, setting an explicit `height` (like `height: "80%"`) will work better for controlling the Surface's size.
 
+> **Note**: The `Surface` component from react-native-paper does not work well with the `flex` property. Instead of using `flex`, setting an explicit `height` (like `height: "80%"`) will work better for controlling the Surface's size.
 
 ### Group Exercise
 
@@ -250,6 +250,18 @@ errorText: {
 ### Group Exercise
 
 1. When user input is not a valid number, all the cat disappears. Can you fix it?
+
+## Step 5: Add keyboard avoiding view
+
+```javascript
+import { KeyboardAvoidingView } from "react-native";
+
+<KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
+  {/* The rest of your code */}
+</KeyboardAvoidingView>;
+```
+
+`KeyboardAvoidingView` is a component that automatically adjusts its position to avoid the keyboard. It's especially useful for iOS devices to prevent the input field from being hidden behind the keyboard.
 
 ## Next Steps for Enhancement
 

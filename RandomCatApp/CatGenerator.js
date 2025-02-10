@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Dimensions, Image, ScrollView, StyleSheet, View } from "react-native";
+import {
+  Dimensions,
+  Image,
+  ScrollView,
+  StyleSheet,
+  View,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import { Button, Surface, Text, TextInput } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -52,41 +60,53 @@ const CatGenerator = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
-      <Surface style={styles.surface}>
-        <Text variant="titleLarge" style={styles.title}>
-          {cats.length
-            ? `${cats.length} number of cats has been found!`
-            : "Random Cat Generator"}
-        </Text>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
+      <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
+        <Surface style={styles.surface}>
+          <Text variant="titleLarge" style={styles.title}>
+            {cats.length
+              ? `${cats.length} number of cats has been found!`
+              : "Random Cat Generator"}
+          </Text>
 
-        <View style={styles.scrollContainer}>
-          <ScrollView style={styles.scrollView}>
-            <View style={styles.imageGrid}>
-              {cats.map((cat, index) => (
-                <Surface key={`${cat.id}-${index}`} style={styles.imageSurface}>
-                  <Image source={{ uri: cat.url }} style={styles.image} />
-                </Surface>
-              ))}
-            </View>
-          </ScrollView>
-        </View>
-        <View style={styles.inputContainer}>
-          {error ? <Text style={styles.errorText}>{error}</Text> : null}
-          <TextInput
-            label="Number of cats"
-            value={inputValue}
-            onChangeText={setInputValue}
-            keyboardType="numeric"
-            mode="outlined"
-            style={styles.input}
-          />
-          <Button mode="contained" onPress={handleSubmit} style={styles.button}>
-            Submit
-          </Button>
-        </View>
-      </Surface>
-    </SafeAreaView>
+          <View style={styles.scrollContainer}>
+            <ScrollView style={styles.scrollView}>
+              <View style={styles.imageGrid}>
+                {cats.map((cat, index) => (
+                  <Surface
+                    key={`${cat.id}-${index}`}
+                    style={styles.imageSurface}
+                  >
+                    <Image source={{ uri: cat.url }} style={styles.image} />
+                  </Surface>
+                ))}
+              </View>
+            </ScrollView>
+          </View>
+          <View style={styles.inputContainer}>
+            {error ? <Text style={styles.errorText}>{error}</Text> : null}
+            <TextInput
+              label="Number of cats"
+              value={inputValue}
+              onChangeText={setInputValue}
+              keyboardType="numeric"
+              mode="outlined"
+              style={styles.input}
+            />
+            <Button
+              mode="contained"
+              onPress={handleSubmit}
+              style={styles.button}
+            >
+              Submit
+            </Button>
+          </View>
+        </Surface>
+      </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 };
 
